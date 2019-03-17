@@ -3,11 +3,7 @@
 # Build & Run docker
 ```sh
 $ docker-compose up
-```
-
-## Testing
-1. Wait until docker-compose command starts haproxy, nginx1, nginx2 and nginx3 servers
-Sample Output:
+# Sample Output:
 Attaching to docker-haproxy-nginx_nginx3_1, docker-haproxy-nginx_nginx1_1, docker-haproxy-nginx_nginx2_1, docker-haproxy-nginx_haproxy_1
 haproxy_1  | <7>haproxy-systemd-wrapper: executing /usr/local/sbin/haproxy -p /run/haproxy.pid -f /usr/local/etc/haproxy/haproxy.cfg -Ds 
 nginx1_1   | 172.18.0.4 - - [17/Mar/2019:07:37:03 +0000] "GET / HTTP/1.1" 200 12 "-" "curl/7.54.0" "-"
@@ -20,22 +16,20 @@ nginx1_1   | 172.18.0.4 - - [17/Mar/2019:07:37:06 +0000] "GET / HTTP/1.1" 200 12
 nginx2_1   | 172.18.0.4 - - [17/Mar/2019:07:37:07 +0000] "GET / HTTP/1.1" 200 12 "-" "curl/7.54.0" "-"
 nginx3_1   | 172.18.0.4 - - [17/Mar/2019:07:37:07 +0000] "GET / HTTP/1.1" 200 12 "-" "curl/7.54.0" "-"
 nginx1_1   | 172.18.0.4 - - [17/Mar/2019:07:37:07 +0000] "GET / HTTP/1.1" 200 12 "-" "curl/7.54.0" "-"
+```
 
 2. Open a new terminal and run
 
 Sample Input/Output
 ```sh
 $ curl http://localhost:8080
-```
 myhost:cel_test sudharch$ curl http://localhost:8080
 From nginx1
 
-```sh
 $ curl http://localhost:8080
-```
 myhost:cel_test sudharch$ curl http://localhost:8080
 From nginx2
-myhost:cel_test sudharch$ curl http://localhost:8080
+```
 
 In the above example application traffic is routed to one of the backend servers which is called layer 4 (aka TCP) routing.
 
@@ -45,15 +39,13 @@ Eg: http://yourapplication.com/blog, here the user request is to provide blog pa
 Sample Input/Output
 ```sh
 $ curl http://localhost:8080/blog.html
-```
 Blog App
 Serving Blog page from nginx3
 
-```sh
 $ curl http://localhost:8080/blog.html
-```
 Blog App
 Serving Blog page from nginx4
+```
 
 This setting is defined inside haproxy.cfg like below
 
